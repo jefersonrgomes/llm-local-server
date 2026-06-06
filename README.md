@@ -23,11 +23,12 @@ pip install openai
 | `chat-v2-memory.py` | Chat interativo no terminal que mantém o histórico da conversa. |
 | `chat-v3-tool-calling.py` | Demonstra *tool calling*: o modelo decide chamar uma ferramenta (`ler_arquivo`) e responde com base no conteúdo lido. |
 | `chat-v4-agent-loop-mult-tool-calling.py` | Loop de agente com várias ferramentas (`ler_arquivo`, `listar_arquivos`, `salvar_arquivo`): o modelo encadeia chamadas até concluir a tarefa. |
+| `chat-v5-agente-interativo.py` | Agente interativo no terminal com *system prompt* e histórico: aceita várias tarefas em sequência usando as mesmas ferramentas. |
 | `notas.txt` | Arquivo de texto de exemplo lido pelos labs. |
 | `tarefas.txt` | Arquivo de texto de exemplo (lista de tarefas) usado pelos labs. |
 
-> O `chat-v4-agent-loop-mult-tool-calling.py` gera um arquivo `resumo.txt` ao
-> rodar. Ele é uma saída do lab e não é versionado (está no `.gitignore`).
+> Os agentes (v4 e v5) podem gerar arquivos `resumo*.txt` ao rodar. Eles são
+> saídas dos labs e não são versionados (`resumo*.txt` está no `.gitignore`).
 
 ## Como usar
 
@@ -42,6 +43,8 @@ python chat-v2-memory.py
 python chat-v3-tool-calling.py
 # ou
 python chat-v4-agent-loop-mult-tool-calling.py
+# ou
+python chat-v5-agente-interativo.py
 ```
 
 No `chat-v2-memory.py`, digite `sair` para encerrar a conversa.

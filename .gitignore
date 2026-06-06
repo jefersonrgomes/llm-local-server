@@ -10,7 +10,7 @@ env/
 .env
 
 # Saída gerada pelos labs
-resumo.txt
+resumo*.txt
 
 # IDE / OS
 .vscode/
