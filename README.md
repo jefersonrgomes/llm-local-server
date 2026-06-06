@@ -9,6 +9,9 @@ apontada para o servidor local.
 - Python 3.9+
 - [LM Studio](https://lmstudio.ai/) com um modelo carregado e o servidor local
   ativo em `http://localhost:1234/v1`
+  - Os scripts v1–v4 usam o nome genérico `"local-model"` (o LM Studio usa o
+    modelo que estiver carregado). O `chat-v5-agente-interativo.py` aponta para
+    `qwen2.5-7b-instruct` — ajuste para o nome do modelo que você carregou.
 - Dependência Python:
 
 ```bash

@@ -94,7 +94,7 @@ def executar_tarefa(mensagens):
     passo = 1 # contador so pra visualizarmos o que acontece
     while True:
         resposta = cliente.chat.completions.create(
-            model="local-model",
+            model="qwen2.5-7b-instruct",
             messages=mensagens,
             tools=ferramentas
         )

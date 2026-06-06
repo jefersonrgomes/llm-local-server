@@ -11,6 +11,7 @@ env/
 
 # Saída gerada pelos labs
 resumo*.txt
+prioridades.txt
 
 # IDE / OS
 .vscode/
