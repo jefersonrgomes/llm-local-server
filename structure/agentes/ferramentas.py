@@ -4,6 +4,9 @@ from docx import Document  # python-docx — leitura de Word
 from ddgs import DDGS 
 import os
 
+import subprocess
+
+
 # --- IMPLEMENTACAO DAS FERRAMENTAS ---
 
 def ler_arquivo(nome_arquivo):
@@ -80,6 +83,31 @@ def listar_pastas():
     pastas = [f for f in os.listdir(".") if os.path.isdir(f)]
     return "Pastas: " + ", ".join(pastas) if pastas else "Nenhuma pasta encontrada."
 
+def rodar_comando(comando):
+    """
+    Executa um comando do sistema operacional.
+    A confirmacao humana e feita no agente, antes de chamar esta funcao.
+    """
+    try:
+        resultado = subprocess.run(
+            comando,
+            shell=True,
+            capture_output=True,
+            text=True,
+            timeout=30        # cancela automaticamente se demorar mais de 30s
+        )
+        saida = resultado.stdout.strip()
+        erro = resultado.stderr.strip()
+
+        if erro:
+            return f"Saida: {saida}\nErro: {erro}"
+        return saida if saida else "Comando executado sem saida."
+
+    except subprocess.TimeoutExpired:
+        return "Erro: comando demorou mais de 30 segundos e foi cancelado."
+    except Exception as e:
+        return f"Erro ao executar comando: {str(e)}"
+
 # --- MAPA: nome (string) → funcao real ---
 # O agente usa este mapa pra saber qual funcao chamar
 MAPA_FERRAMENTAS = {
@@ -91,7 +119,9 @@ MAPA_FERRAMENTAS = {
     "ler_word": ler_word,
     "criar_pasta": criar_pasta,        # ← novo
     "mover_arquivo": mover_arquivo,    # ← novo
-    "listar_pastas": listar_pastas     # ← novo 
+    "listar_pastas": listar_pastas,    # ← novo 
+    "rodar_comando": rodar_comando     # ← novo
+
 }
 
 # --- DESCRICOES: o que o modelo le pra saber como usar cada ferramenta ---
@@ -240,5 +270,27 @@ DEFINICOES_FERRAMENTAS = [
                 "properties": {}
             }
         }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "rodar_comando",
+            "description": (
+                "Executa um comando no terminal do sistema operacional. "
+                "Use para tarefas como verificar versoes, listar processos, "
+                "ou executar scripts. Nunca use para deletar arquivos."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "comando": {
+                        "type": "string",
+                        "description": "Comando a executar, ex: python --version"
+                    }
+                },
+                "required": ["comando"]
+            }
+        }
     }
+
 ]

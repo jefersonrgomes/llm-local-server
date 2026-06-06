@@ -70,7 +70,12 @@ conjunto maior de ferramentas:
 
 Ferramentas disponíveis para o agente: `ler_arquivo`, `listar_arquivos`,
 `salvar_arquivo`, `buscar_na_web`, `ler_pdf`, `ler_word`, `criar_pasta`,
-`mover_arquivo` e `listar_pastas`.
+`mover_arquivo`, `listar_pastas` e `rodar_comando`.
+
+> **Human in the loop:** a ferramenta `rodar_comando` executa comandos no
+> terminal do sistema (via `subprocess`, com timeout de 30s). Antes de cada
+> execução o agente mostra o comando e pede confirmação (`s/n`) — responda `n`
+> para cancelar.
 
 Os módulos se importam por nome, então execute a partir da própria pasta:
 

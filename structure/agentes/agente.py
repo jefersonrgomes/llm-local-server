@@ -28,12 +28,30 @@ def executar_tarefa(historico):
 
         elif motivo == "tool_calls":
             historico.append(resposta.choices[0].message)
+
             for tool_call in resposta.choices[0].message.tool_calls:
                 nome = tool_call.function.name
                 args = json.loads(tool_call.function.arguments)
-                print(f"  [passo {passo}] usando: {nome} {args}")
+
+                # --- HUMAN IN THE LOOP ---
+                # Comandos de sistema pedem confirmacao antes de executar
+                if nome == "rodar_comando":
+                    print(f"\n  [agente quer executar comando]")
+                    print(f"  Comando: {args['comando']}")
+                    confirmacao = input("  Confirma execucao? (s/n): ").strip().lower()
+
+                    if confirmacao != "s":
+                        resultado = "Execucao cancelada pelo usuario."
+                        print(f"  [cancelado]\n")
+                    else:
+                        print(f"  [passo {passo}] executando: {args['comando']}")
+                        resultado = MAPA_FERRAMENTAS[nome](**args)
+                else:
+                    print(f"  [passo {passo}] usando: {nome} {args}")
+                    resultado = MAPA_FERRAMENTAS[nome](**args)
+
                 passo += 1
-                resultado = MAPA_FERRAMENTAS[nome](**args)
+
                 historico.append({
                     "role": "tool",
                     "tool_call_id": tool_call.id,
