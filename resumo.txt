@@ -1,0 +1,15 @@
+===================================
+RESUMO DE DADOS DO SISTEMA
+===================================
+
+[Tarefas]
+--------------------
+- Finalizar relatorio de integracao
+- Revisar RAML da API de pagamentos
+- Agendar call com cliente quinta 15h
+
+[Notas Importantes]
+-------------------
+Reuniao com cliente: segunda-feira 14h
+Tarefa pendente: revisar documentacao da API
+Lembrete: renovar certificado SSL em julho
