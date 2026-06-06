@@ -23,6 +23,7 @@ pip install openai
 | `chat-v2-memory.py` | Chat interativo no terminal que mantém o histórico da conversa. |
 | `chat-v3-tool-calling.py` | Demonstra *tool calling*: o modelo decide chamar uma ferramenta (`ler_arquivo`) e responde com base no conteúdo lido. |
 | `notas.txt` | Arquivo de texto de exemplo lido pelo `chat-v3-tool-calling.py`. |
+| `tarefas.txt` | Arquivo de texto de exemplo (lista de tarefas) para uso com os labs. |
 
 ## Como usar
 
