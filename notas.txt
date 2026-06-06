@@ -1,0 +1,3 @@
+Reuniao com cliente: segunda-feira 14h
+Tarefa pendente: revisar documentacao da API
+Lembrete: renovar certificado SSL em julho

@@ -21,6 +21,8 @@ pip install openai
 | --- | --- |
 | `chat-v1-simple.py` | Faz uma única pergunta ao modelo e imprime a resposta. |
 | `chat-v2-memory.py` | Chat interativo no terminal que mantém o histórico da conversa. |
+| `chat-v3-tool-calling.py` | Demonstra *tool calling*: o modelo decide chamar uma ferramenta (`ler_arquivo`) e responde com base no conteúdo lido. |
+| `notas.txt` | Arquivo de texto de exemplo lido pelo `chat-v3-tool-calling.py`. |
 
 ## Como usar
 
@@ -31,9 +33,14 @@ pip install openai
 python chat-v1-simple.py
 # ou
 python chat-v2-memory.py
+# ou
+python chat-v3-tool-calling.py
 ```
 
 No `chat-v2-memory.py`, digite `sair` para encerrar a conversa.
+
+> O `chat-v3-tool-calling.py` requer um modelo que suporte *tool calling* e que
+> o `notas.txt` esteja no mesmo diretório.
 
 > A `api_key` usada nos scripts é fictícia de propósito — o servidor local do
 > LM Studio não valida a chave.
