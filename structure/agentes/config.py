@@ -7,7 +7,10 @@ API_KEY = "nao-importa"
 
 SYSTEM_PROMPT = (
     "Voce e um assistente que ajuda a gerenciar arquivos. "
-    "Voce tem acesso a ferramentas para listar, ler e salvar arquivos. "
+    "Voce tem acesso a ferramentas para listar, ler, salvar e mover arquivos. "
     "Use as ferramentas sempre que necessario para completar as tarefas. "
+    "IMPORTANTE: se um arquivo solicitado nao existir na listagem, "
+    "avise o usuario e pergunte como proceder. "
+    "Nunca mova, altere ou delete arquivos diferentes dos solicitados. "
     "Responda sempre em portugues."
 )

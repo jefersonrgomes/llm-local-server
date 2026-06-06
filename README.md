@@ -21,11 +21,18 @@ O projeto tem duas partes:
     `structure/agentes` apontam para `qwen2.5-7b-instruct` — ajuste para o nome
     do modelo que você carregou (em `structure/agentes/config.py`, basta mudar
     a constante `MODELO`).
-- Dependência Python:
+- Dependências Python:
 
 ```bash
+# Base (todos os labs)
 pip install openai
+
+# Extras usados pelas ferramentas de structure/agentes
+pip install ddgs pymupdf python-docx
 ```
+
+  - `ddgs` (busca na web), `pymupdf` (leitura de PDF) e `python-docx` (leitura
+    de arquivos Word) só são necessários para o agente em `structure/agentes`.
 
 ## `fundation/` — labs progressivos
 
@@ -51,7 +58,8 @@ encerrar.
 
 ## `structure/agentes/` — agente modularizado
 
-Mesma ideia do v5, separada em módulos com responsabilidade única:
+Mesma ideia do v5, separada em módulos com responsabilidade única e com um
+conjunto maior de ferramentas:
 
 | Arquivo | Descrição |
 | --- | --- |
@@ -60,7 +68,11 @@ Mesma ideia do v5, separada em módulos com responsabilidade única:
 | `agente.py` | Loop do agente (`executar_tarefa`). |
 | `main.py` | Ponto de entrada com o loop interativo. |
 
-Como os módulos se importam por nome, execute a partir da própria pasta:
+Ferramentas disponíveis para o agente: `ler_arquivo`, `listar_arquivos`,
+`salvar_arquivo`, `buscar_na_web`, `ler_pdf`, `ler_word`, `criar_pasta`,
+`mover_arquivo` e `listar_pastas`.
+
+Os módulos se importam por nome, então execute a partir da própria pasta:
 
 ```bash
 cd structure/agentes
@@ -69,7 +81,8 @@ python main.py
 
 ## Notas
 
-> Os agentes podem **gerar arquivos** (ex.: `resumo*.txt`, `prioridades.txt`) ao
+> Os agentes podem **gerar arquivos e pastas** (ex.: `resumo*.txt`,
+> `prioridades.txt`, e a pasta `organizados/` para onde arquivos são movidos) ao
 > rodar. Eles são saídas dos labs e não são versionados (veja o `.gitignore`).
 
 > Os scripts de *tool calling* (v3+) requerem um modelo que suporte essa função e
