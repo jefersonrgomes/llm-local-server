@@ -9,6 +9,9 @@ env/
 # Ambiente / segredos
 .env
 
+# Saída gerada pelos labs
+resumo.txt
+
 # IDE / OS
 .vscode/
 .idea/

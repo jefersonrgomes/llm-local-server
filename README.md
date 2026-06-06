@@ -25,7 +25,9 @@ pip install openai
 | `chat-v4-agent-loop-mult-tool-calling.py` | Loop de agente com várias ferramentas (`ler_arquivo`, `listar_arquivos`, `salvar_arquivo`): o modelo encadeia chamadas até concluir a tarefa. |
 | `notas.txt` | Arquivo de texto de exemplo lido pelos labs. |
 | `tarefas.txt` | Arquivo de texto de exemplo (lista de tarefas) usado pelos labs. |
-| `resumo.txt` | Exemplo de arquivo de saída gerado pelo `chat-v4-agent-loop-mult-tool-calling.py`. |
+
+> O `chat-v4-agent-loop-mult-tool-calling.py` gera um arquivo `resumo.txt` ao
+> rodar. Ele é uma saída do lab e não é versionado (está no `.gitignore`).
 
 ## Como usar
 
