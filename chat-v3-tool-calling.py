@@ -73,7 +73,7 @@ if motivo == "tool_calls":
     mensagens.append(resposta.choices[0].message) #adiciona a mensagem do modelo no historico
     mensagens.append({
         "role": "tool",
-        "tool_calls_id": tool_call.id,
+        "tool_call_id": tool_call.id,
         "content": resultado
     }) #adiciona a resposta da ferramenta no historico
 

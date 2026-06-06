@@ -1,0 +1,3 @@
+- Finalizar relatorio de integracao
+- Revisar RAML da API de pagamentos
+- Agendar call com cliente quinta 15h
